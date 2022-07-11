@@ -76,15 +76,15 @@ int insertIn(noTreeP *treeP, int data) {
 
         if(data < (*treeP)->data)
         {
-            // data < data current
+            // data < current data
             
             insertIn(&((*treeP)->left), data);
         } else if(data > (*treeP)->data) {
-            // data > data current
+            // data > current data
             
             insertIn(&((*treeP)->right), data);
         } else {
-            // data = data current
+            // data = current data
             
             return 1;
         }

@@ -12,9 +12,9 @@ typedef struct noTree noTree;
 typedef noTree *noTreeP;
 
 
-int preOrder(noTreeP arvP);
+int preOrder(noTreeP treeP);
 
-int insertIn(noTreeP *arvP, int data);
+int insertIn(noTreeP *treeP, int data);
 
 int main() {
     setlocale(LC_ALL, "English");
@@ -38,51 +38,51 @@ int main() {
 
 }
 
-int preOrder(noTreeP arvP) {
-    if(arvP != NULL) {
+int preOrder(noTreeP treeP) {
+    if(treeP != NULL) {
 
-        printf("%d ", arvP->data);
+        printf("%d ", treeP->data);
 
-        preOrder(arvP->left);
+        preOrder(treeP->left);
 
-        preOrder(arvP->right);
+        preOrder(treeP->right);
     }
 
     return 0;
 }
 
-int insertIn(noTreeP *arvP, int data) {
+int insertIn(noTreeP *treeP, int data) {
     static noTreeP auxFather = NULL;
 
-    if(*arvP == NULL) {
+    if(*treeP == NULL) {
 
 
-        *arvP = malloc(sizeof(noTree));
+        *treeP = malloc(sizeof(noTree));
 
-        if(*arvP != NULL) {
+        if(*treeP != NULL) {
             // insert data
             
-            (*arvP)->data = data;
-            (*arvP)->left = NULL;
-            (*arvP)->right = NULL;
-            (*arvP)->father = auxFather;
+            (*treeP)->data = data;
+            (*treeP)->left = NULL;
+            (*treeP)->right = NULL;
+            (*treeP)->father = auxFather;
         } else {
             return 2;
         }
     } else {
         // Not empty tree
 
-        auxFather = *arvP;
+        auxFather = *treeP;
 
-        if(data < (*arvP)->data)
+        if(data < (*treeP)->data)
         {
             // data < data current
             
-            insertIn(&((*arvP)->left), data);
-        } else if(data > (*arvP)->data) {
+            insertIn(&((*treeP)->left), data);
+        } else if(data > (*treeP)->data) {
             // data > data current
             
-            insertIn(&((*arvP)->right), data);
+            insertIn(&((*treeP)->right), data);
         } else {
             // data = data current
             

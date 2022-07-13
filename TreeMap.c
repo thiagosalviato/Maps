@@ -11,7 +11,6 @@ struct noTree {
 typedef struct noTree noTree;
 typedef noTree *noTreeP;
 
-
 int preOrder(noTreeP treeP);
 
 int insertIn(noTreeP *treeP, int data);
